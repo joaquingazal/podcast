@@ -1,0 +1,284 @@
+
+@font-face { font-family: mono; src: url("IBM_Plex_Mono/IBMPlexMono-Regular.ttf"); }
+@font-face { font-family: monomedium; src: url("IBM_Plex_Mono/IBMPlexMono-Medium.ttf"); }
+@font-face { font-family: sanssemibold; src: url("IBM_Plex_Sans/IBMPlexSans-SemiBold.ttf"); }
+@font-face { font-family: sans; src: url("IBM_Plex_Sans/IBMPlexSans-Light.ttf"); }
+
+*{
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+.main{
+    display: grid;
+    grid-template-areas:"nav"
+                        "header" 
+                        "episodes";
+}    
+
+/* menu */
+
+.nav {
+    background-color: #FFFFFF;
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    grid-area: nav;
+}
+  
+.nav ul {
+    list-style: none;
+    overflow: hidden;
+    background-color: #0000EC;
+}
+  
+.nav li a {
+    font-family: mono;
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 28px;
+    display: block;
+    padding: 18px 15px;
+    text-decoration: none;
+}
+
+  
+.nav li a:hover {
+    background-color: #0000EC;
+}
+
+.nav .menu-btn:hover {
+    background-color: #FFFFFF;
+}
+  
+.nav .logo {
+    display: block;
+    float: left;
+    padding: 13px 20px 10px;
+}
+  
+.nav .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+  
+/* menu icon */
+  
+.nav .menu-icon {
+    cursor: pointer;
+    float: right;
+    padding: 25px 20px 25px 20px;
+    position: relative;
+    user-select: none;
+}
+  
+.nav .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background-color .2s ease-out;
+    width: 18px;
+}
+  
+.nav .menu-icon .navicon:before,
+.nav .menu-icon .navicon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+  
+.nav .menu-icon .navicon:before {
+    top: 5px;
+}
+  
+.nav .menu-icon .navicon:after {
+    top: -5px;
+}
+  
+/* menu btn */
+  
+.nav .menu-btn {
+    display: none;
+}
+  
+.nav .menu-btn:checked ~ .menu {
+    max-height: 272px;
+}
+  
+.nav .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+}
+  
+.nav .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+}
+  
+.nav .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+}
+  
+.nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+}
+  
+/* header */
+
+.header{
+    margin: 80px 20px 0px 20px;
+    grid-area: header;
+}
+
+.tittle {
+    font-family: sans;
+    font-size: 45px;
+    color: #060A24;
+    letter-spacing: 0;
+}
+
+.dot{
+    font-family: sans;
+    font-size: 36px;
+    color: #060A24;
+    letter-spacing: 0;
+    line-height: 42px;
+}
+
+.descmobile{
+    margin-top: 20px;
+    font-family: mono;
+    font-weight: 600;
+    font-size: 15px;
+    color: #060A24;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+
+.descdesktop{
+    display: none;
+}
+
+.button{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    background: #00F3BB;
+    width: 320px;
+    height: 48px;
+    font-family: monomedium;
+    font-size: 18px;
+    color: #060A24;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 24px;
+}
+
+/*EPISODIOS*/
+
+.episodes{
+    background-image: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+    clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+    display: flex;
+    flex-direction: column;
+    grid-area: episodes;
+    margin-top: 30px;
+    height: 1000px;
+}
+
+.tittle2{
+    font-family: sans;
+    font-size: 36px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 42px;
+    margin-top: 65px;
+}
+/* 48em = 768px */
+  
+
+@media (min-width: 48em) {
+    .nav {
+        height: 80px;
+    }
+    .logoimg{
+        width: 80px;
+        height: 36px;
+        padding-top: 9px;
+    }
+    .nav li {
+        float: left;
+    }
+    .nav li a {
+        color: #060A24;
+        padding-top: 1.5em;
+    }
+    .nav li a:hover {
+        background-color: #FFFFFF;
+        font-family: monomedium;
+        color: #00F3BB;
+        text-decoration: line-through;
+    }
+    .nav li a:active{
+        color: rgba(6,10,36,0.56);
+    }
+    .nav .menu {
+        clear: none;
+        float: right;
+        max-height: 80px;
+        background-color: rgb(255, 255, 255);
+        margin-right: 5em;
+    }
+    .nav .menu-icon {
+        display: none;
+    }
+
+    .header{
+        margin: 150px 20px 0px 20px;
+        grid-area: header;
+    }
+
+    .tittle {
+        margin-left: 100px;
+        font-size: 64px;
+    }
+
+    .dot{
+        font-family: sans;
+        font-size: 36px;
+        color: #0000EC;
+        letter-spacing: 0;
+        line-height: 42px;
+    }
+
+    .descdesktop{
+        display: block;
+        margin: 20px 0px 0px 100px;
+        font-family: mono;
+        font-weight: 600;
+        font-size: 14px;
+        color: #060A24;
+        letter-spacing: 0;
+        line-height: 22px;
+        width: 37%;
+    }
+    .descmobile{
+        display: none;
+    }
+
+    .button{
+        margin: 50px 100px 0px;
+    }
+    .button:hover{
+        color: #FFFFFF;
+        background-image: linear-gradient(225deg, #0000FE 0%, #00F0B8 100%);
+    }
+  }
